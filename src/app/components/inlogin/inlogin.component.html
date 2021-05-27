@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-4 mt-4 login">
+      <form action="Eslogin.php" method="post">
+        <a [routerLink]="['../inindex']" routerLinkActive="active" class="nav-link scrollto">
+          <img class="mb-4" src="/assets/logo_wh.jpg" width="200">
+        </a>
+        <h1 class="h3 mb-3 fw-normal textbluedark">Login</h1>
+
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" name="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <!-- <div class="checkbox mb-3">
+          <label>
+              <input type="checkbox" value="remember-me"> Recordarme
+          </label>
+        </div> -->
+        <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login">
+        <br> <br>
+
+        <a [routerLink]="['../inindex']" routerLinkActive="active" class="btn btn-secondary mb-2">Back to home</a>
+      </form>
+  </div>
+  </div>

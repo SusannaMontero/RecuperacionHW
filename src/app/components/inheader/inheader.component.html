@@ -1,0 +1,29 @@
+<header id="header">
+  <div class="container d-flex align-items-center">
+    <a [routerLink]="['../inindex']" routerLinkActive="active" class="nav-link scrollto">
+    <img class="me-auto" src="/assets/logo_wh.jpg" width="300">
+    </a>
+    <!-- <h1 class="logo me-auto"><a href="index.html"><img src="assets/img/logo_wh.jpg"></a></h1> -->
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar order-last order-lg-0" style="padding-left: 350px;">
+      <ul>
+        <li><a [routerLink]="['../inindex']" routerLinkActive="active" class="nav-link scrollto">Home</a></li>
+        <li><a [routerLink]="['../abouthealthworld']" routerLinkActive="active" class="nav-link scrollto">About Health World</a></li>
+
+        <li><a [routerLink]="['../contact']" routerLinkActive="active" class="nav-link scrollto">Contact</a></li>
+        <li class="dropdown"><a href="#"><span>Language</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a [routerLink]="['../index']" routerLinkActive="active" class="nav-link scrollto">Spanish</a></li>
+            <li><a [routerLink]="['../inindex']" routerLinkActive="active" class="nav-link scrollto">English</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    <a [routerLink]="['../inlogin']" routerLinkActive="active" class="appointment-btn scrollto"><span class="d-none d-md-inline">Log in</span></a>
+  </div>
+</header><!-- End Header -->
