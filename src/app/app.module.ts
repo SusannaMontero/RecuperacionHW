@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -31,6 +32,10 @@ import { InloginComponent } from './components/inlogin/inlogin.component';
     InloginComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
+  // SweetAlert2Module,
+  //  HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],

@@ -1,29 +1,42 @@
 <div class="container">
-<div class="col-4 mt-4 login">
-    <form action="Eslogin.php" method="post">
-      <a [routerLink]="['../index']" routerLinkActive="active" class="nav-link scrollto">
-        <img class="mb-4" src="/assets/logo_wh.jpg" width="200">
-      </a>
-      <h1 class="h3 mb-3 fw-normal textbluedark">Iniciar sesion</h1>
+    <div class="col-4 mt-4 login">
+        <!--<form action="Eslogin.php" method="post">-->
+        <form [formGroup]="loginForm" (ngSubmit)="loginUs()">
+            <a [routerLink]="['../index']" routerLinkActive="active" class="nav-link scrollto">
+                <img class="mb-4" src="/assets/logo_wh.jpg" width="200">
+            </a>
+            <h1 class="h3 mb-3 fw-normal textbluedark">Iniciar sesion</h1>
 
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" name="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Correo</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Contraseña</label>
-      </div>
+            <div class="form-floating mb-3">
+                <input type="email" formControlName="emailUs" class="form-control" id="floatingInput" name="floatingInput" placeholder="name@example.com" [ngClass]="{ 'is-valid':  controlFormulario.emailUs.touched && controlFormulario.emailUs.valid,
+                'is-invalid': controlFormulario.emailUs.touched && controlFormulario.emailUs.invalid}" />
+                <div *ngIf=" controlFormulario.emailUs.errors" class="invalid-feedback">
+                    <div *ngIf="controlFormulario.emailUs.errors.required">Correo requerido</div>
+                    <div *ngIf="controlFormulario.emailUs.errors.email">Falta @ </div>
+                </div>
+                <label for="floatingInput">Correo</label>
+            </div>
 
-      <!-- <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Recordarme
-        </label>
-      </div> -->
-      <input class="w-100 btn btn-lg btn-primary" type="submit" value="Iniciar Sesion">
-      <br> <br>
+            <div class="form-floating mb-3">
+                <input type="password" formControlName="contrasenyaUs" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="Password" [ngClass]="{ 'is-valid':  controlFormulario.contrasenyaUs.touched && controlFormulario.contrasenyaUs.valid,
+                  'is-invalid': controlFormulario.contrasenyaUs.touched && controlFormulario.contrasenyaUs.invalid}" />
+                <div *ngIf=" controlFormulario.contrasenyaUs.errors" class="invalid-feedback">
+                    <div *ngIf="controlFormulario.contrasenyaUs.errors.required">Inserte la contraseña</div>
+                    <div *ngIf="controlFormulario.contrasenyaUs.errors.minlength">Mínimo requerido 8 caracteres</div>
+                    <div *ngIf="controlFormulario.contrasenyaUs.errors.maxlength">Máximo 20 caracteres</div>
+                </div>
+                <label for="floatingPassword">Contraseña</label>
+            </div>
 
-      <a [routerLink]="['../index']" routerLinkActive="active" class="btn btn-secondary mb-2">Volver a inicio</a>
-    </form>
-</div>
+            <!-- <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Recordarme
+            </label>
+          </div> -->
+            <input class="w-100 btn btn-lg btn-primary" type="submit" value="Iniciar Sesion">
+            <br> <br>
+
+            <a [routerLink]="['../index']" routerLinkActive="active" class="btn btn-secondary mb-2">Volver a inicio</a>
+        </form>
+    </div>
 </div>
