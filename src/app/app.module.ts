@@ -1,7 +1,8 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+//import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
@@ -35,7 +36,7 @@ import { InloginComponent } from './components/inlogin/inlogin.component';
     FormsModule,
     ReactiveFormsModule,
   // SweetAlert2Module,
-  //  HttpClientModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
