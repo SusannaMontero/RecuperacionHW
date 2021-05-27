@@ -41,8 +41,9 @@ this.http.post<Respuesta>(`${environment.serverUrl}loginusuario.php`, JSON.strin
     );
     environment.vsesion = usuario.id_usuari;
     this.usuarioObj = respuesta.datos[0];
-    // aqui tengo que llamar el siguiente componente
-    this.router.navigate(['/desktopusuario']);
+
+    // Aquí se llama al siguiente componente que será el perfil
+    this.router.navigate(['/']);
     }
   },
   (error: any) => {
