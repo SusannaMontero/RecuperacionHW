@@ -1,9 +1,11 @@
+// import { EncriptarDecriptarService } from './../../services/encriptar-decriptar.service';
 import { Usuario } from './../../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioService } from 'src/app/services/usuario.service';
+
 
 @Component({
   selector: 'app-eslogin',
@@ -21,18 +23,21 @@ export class EsloginComponent implements OnInit {
   alerta: string = " ";
   Router: any;
 
+  usuario: Usuario;
+
   constructor(
     private FormBuilder: FormBuilder,
     private loginUsuario: UsuarioService,
-    private router: Router
+    private router: Router,
+    // private encriptar: EncriptarDecriptarService
   ) { }
 
   ngOnInit(): void {
     // en el login form entran los datos del formulario y aquí se hace la comprobación
 
     this.loginForm = this.FormBuilder.group({
-      emailUs: ['', [Validators.required, Validators.email]],
-      contrasenyaUs: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('((?=.*[a-z])(?=.*[A-Z]).{6,20})') ]]
+      email: ['', [Validators.required, Validators.email]],
+      contrasenya: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('((?=.*[a-z])(?=.*[A-Z]).{6,20})') ]]
     });
   }
 
@@ -42,12 +47,13 @@ export class EsloginComponent implements OnInit {
   }
 
   loginUs() {
-    // Se crea una instancia para el service de login alumno pasando los datos del formulario
-    let usuario = new Usuario(this.loginForm.controls.emailUs.value,
-      );
-
+    // Se crea una instancia para el service de login  pasando los datos del formulario
+     let usuario = new Usuario(this.loginForm.controls.email.value,
+      this.loginForm.controls.contrasenya.value);
+      
+    // Con el submit se comprueba si se ha enviado el formulario
       this.submitted = true;
-      // Con el submit se comprueba si se ha enviado el formulario
+      
 
       // En caso de no tener los valores correctos para loguear
       if (this.loginForm.invalid) {
@@ -56,7 +62,12 @@ export class EsloginComponent implements OnInit {
 
       // En caso de que sea correcto envío los datos al subscribe del usuarioService
       else {
-        this.loginUsuario.loginUsuarioService(usuario)
+        // var passEncriptada = this.encriptar.set("", usuario.contrasenya);
+        // usuario.contrasenya = passEncriptada;
+
+      // Llamamos a la función para Service y le pasamos el objeto usuario con el mail y la contraseña recogidos del Html
+        this.loginUsuario.loginUsuarioService(this.usuario)
+        console.log(this.usuario);
       }
   }
 

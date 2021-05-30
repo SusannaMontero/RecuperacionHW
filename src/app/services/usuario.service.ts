@@ -21,8 +21,11 @@ export class UsuarioService {
 // Función para loguing usuario
 loginUsuarioService(usuario: Usuario): void{
 
+  console.log(usuario);
+
 // cojo el valor de la variable global URL y le paso ademas el archivo que tengo creado en la carpeta servidor  (db.php)
-this.http.post<Respuesta>(`${environment.serverUrl}loginusuario.php`, JSON.stringify(usuario)).subscribe(
+this.http.post<Respuesta>(`${environment.serverUrl}login.php`, JSON.stringify(usuario)).subscribe(
+  
   (respuesta: Respuesta) => {
     console.log(respuesta);
 
@@ -35,7 +38,7 @@ this.http.post<Respuesta>(`${environment.serverUrl}loginusuario.php`, JSON.strin
     }else {
     console.log("Usuario existe");
     Swal.fire(
-      'Bienvenido/a ' + respuesta.datos[0].nickusuario,
+      'Bienvenido/a ' + respuesta.datos[0].nom,
       '',
       "success"
     );
@@ -43,7 +46,7 @@ this.http.post<Respuesta>(`${environment.serverUrl}loginusuario.php`, JSON.strin
     this.usuarioObj = respuesta.datos[0];
 
     // Aquí se llama al siguiente componente que será el perfil
-    this.router.navigate(['/']);
+    this.router.navigate(['/index']);
     }
   },
   (error: any) => {
