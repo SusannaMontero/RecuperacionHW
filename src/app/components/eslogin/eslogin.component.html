@@ -8,7 +8,8 @@
             <h1 class="h3 mb-3 fw-normal textbluedark">Iniciar sesion</h1>
 
             <div class="form-floating mb-3">
-                <input type="email" formControlName="email" class="form-control" id="floatingInput" name="floatingInput" placeholder="name@example.com" [ngClass]="{ 'is-valid':  controlFormulario.email.touched && controlFormulario.email.valid,
+                <input type="email" formControlName="email" class="form-control" id="floatingInput" name="floatingInput" placeholder="name@example.com" 
+                [ngClass]="{ 'is-valid':  controlFormulario.email.touched && controlFormulario.email.valid,
                 'is-invalid': controlFormulario.email.touched && controlFormulario.email.invalid}" />
                 <div *ngIf=" controlFormulario.email.errors" class="invalid-feedback">
                     <div *ngIf="controlFormulario.email.errors.required">Correo requerido</div>
@@ -18,7 +19,8 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input type="password" formControlName="contrasenya" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="Password" [ngClass]="{ 'is-valid':  controlFormulario.contrasenya.touched && controlFormulario.contrasenya.valid,
+                <input type="password" formControlName="contrasenya" class="form-control" id="floatingPassword" name="floatingPassword" placeholder="Password"
+                 [ngClass]="{ 'is-valid':  controlFormulario.contrasenya.touched && controlFormulario.contrasenya.valid,
                   'is-invalid': controlFormulario.contrasenya.touched && controlFormulario.contrasenya.invalid}" />
                 <div *ngIf=" controlFormulario.contrasenya.errors" class="invalid-feedback">
                     <div *ngIf="controlFormulario.contrasenya.errors.required">Inserte la contraseña</div>

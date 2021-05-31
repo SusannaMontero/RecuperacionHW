@@ -21,12 +21,12 @@ export class EsloginComponent implements OnInit {
   // tslint:disable-next-line: quotemark
   // tslint:disable-next-line: no-inferrable-types
   alerta: string = " ";
-  Router: any;
+  // Router: any;
 
-  usuario: Usuario;
+  // usuario: Usuario;
 
   constructor(
-    private FormBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private loginUsuario: UsuarioService,
     private router: Router,
     // private encriptar: EncriptarDecriptarService
@@ -35,9 +35,10 @@ export class EsloginComponent implements OnInit {
   ngOnInit(): void {
     // en el login form entran los datos del formulario y aquí se hace la comprobación
 
-    this.loginForm = this.FormBuilder.group({
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      contrasenya: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('((?=.*[a-z])(?=.*[A-Z]).{6,20})') ]]
+      contrasenya: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern('((?=.*[a-z])(?=.*[A-Z]).{6,20})') ]],
+    }, {
     });
   }
 
@@ -49,7 +50,9 @@ export class EsloginComponent implements OnInit {
   loginUs() {
     // Se crea una instancia para el service de login  pasando los datos del formulario
      let usuario = new Usuario(this.loginForm.controls.email.value,
+     
       this.loginForm.controls.contrasenya.value);
+      console.log(this.loginForm.controls.email.value);
       
     // Con el submit se comprueba si se ha enviado el formulario
       this.submitted = true;
@@ -66,8 +69,8 @@ export class EsloginComponent implements OnInit {
         // usuario.contrasenya = passEncriptada;
 
       // Llamamos a la función para Service y le pasamos el objeto usuario con el mail y la contraseña recogidos del Html
-        this.loginUsuario.loginUsuarioService(this.usuario)
-        console.log(this.usuario);
+        this.loginUsuario.loginUsuarioService(usuario)
+        console.log(usuario);
       }
   }
 
