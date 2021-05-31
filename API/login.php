@@ -10,7 +10,7 @@ $json = file_get_contents('php://input');
 $params = json_decode($json);
 
 // importamos el archivo con la conexión a la BD
-require 'conBDLocal.php';
+require 'conDBLocal.php';
 
 // creamos la conexión
 $con = conexion();
