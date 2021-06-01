@@ -23,7 +23,8 @@
     "jquery": "^1.9.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
-    "sweetalert2": "^11.0.12",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.0.16",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

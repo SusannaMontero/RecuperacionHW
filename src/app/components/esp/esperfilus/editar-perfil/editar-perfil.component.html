@@ -1,0 +1,88 @@
+<div class="container">
+    <div *ngIf="usuario !== null">
+
+      <!-- formulario de recogida de datos -->
+      <form [formGroup]="editForm" (ngSubmit)="onFormSubmit()">
+
+        <!--  (La variable formControlName es una etiqueta que atiende los cambios al valor del control)-->
+
+        <!-- campo del nombre -->
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input type="text" formControlName="nom" placeholder="" class="form-control"
+              [ngClass]="{'is-valid': controlFormulario.nom.touched && controlFormulario.nom.valid,
+                    'is-invalid': controlFormulario.nom.touched && controlFormulario.nom.invalid}">
+
+            <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+            <div *ngIf="controlFormulario.nom.errors" class="invalid-feedback">
+              <div *ngIf="controlFormulario.nom.errors.required">El nombre es obligatorio</div>
+              <div *ngIf="controlFormulario.nom.errors.minlength">Mínimo 2 carácteres</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- campo de apellido -->
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input type="text" formControlName="cognom" placeholder="" class="form-control"
+              [ngClass]="{'is-valid': controlFormulario.cognom.touched && controlFormulario.cognom.valid,
+                      'is-invalid': controlFormulario.cognom.touched && controlFormulario.cognom.invalid}">
+
+            <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+            <div *ngIf="controlFormulario.cognom.errors" class="invalid-feedback">
+              <div *ngIf="controlFormulario.cognom.errors.required">El apellido es obligatorio</div>
+              <div *ngIf="controlFormulario.cognom.errors.minlength">Mínimo 2 carácteres</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- campo del teléfono -->
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input type="tel" formControlName="telefon" placeholder="" class="form-control"
+              [ngClass]="{'is-valid': controlFormulario.telefon.touched && controlFormulario.telefon.valid,
+                      'is-invalid': controlFormulario.telefon.touched && controlFormulario.telefon.invalid}">
+
+            <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+            <div *ngIf="controlFormulario.telefon.errors" class="invalid-feedback">
+              <div *ngIf="controlFormulario.telefon.errors.required">Número de teléfono obligatorio</div>
+              <div *ngIf="controlFormulario.telefon.errors.minlength">Introduzca un número de teléfono válido</div>
+              <div *ngIf="controlFormulario.telefon.errors.maxlength">Introduzca un número de teléfono válido</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- campo de correo-e -->
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input type="email" formControlName="email" placeholder="" class="form-control"
+              [ngClass]="{'is-valid': controlFormulario.email.touched && controlFormulario.email.valid,
+                      'is-invalid': controlFormulario.email.touched && controlFormulario.email.invalid}">
+
+            <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+            <div *ngIf="controlFormulario.email.errors" class="invalid-feedback">
+              <div *ngIf="controlFormulario.email.errors.required">El correo es obligatorio</div>
+              <div *ngIf="controlFormulario.email.errors.email">El correo no es válido</div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <!-- campo del DNI, sólo de lectura, es un campo que debe habilitar el Admin del sitio -->
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input type="text" formControlName="dni" placeholder="" readonly class="form-control">
+          </div>
+        </div>
+        <br>
+        <br>
+        
+        <!--botón guardar datos-->
+        <div>
+          <div class="form-group">
+            <button type="submit" class="register-button">Guardar Datos</button>
+          </div>
+        </div>
+      </form>
+    </div>

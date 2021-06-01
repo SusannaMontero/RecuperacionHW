@@ -9,9 +9,6 @@ export class Usuario {
         public cognom?: string,
         public telefon?: number,
         public dni?: string,
-        // tslint:disable-next-line: variable-name
-        public num_colegiat?: number,
-        public altres?: string
 
     ) {}
 }

@@ -1,10 +1,11 @@
+import { Usuario } from './../../../models/usuario.model';
 // import { EncriptarDecriptarService } from './../../services/encriptar-decriptar.service';
-import { Usuario } from './../../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioService } from 'src/app/services/usuario.service';
+
 
 
 @Component({
@@ -21,9 +22,8 @@ export class EsloginComponent implements OnInit {
   // tslint:disable-next-line: quotemark
   // tslint:disable-next-line: no-inferrable-types
   alerta: string = " ";
-  // Router: any;
-
-  // usuario: Usuario;
+  
+  //  usuario: Usuario;
 
   constructor(
     private formBuilder: FormBuilder,
