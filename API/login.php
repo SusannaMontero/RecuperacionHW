@@ -39,7 +39,7 @@ $respuesta = new \stdClass();
 if (count($datos) === 0) {
 
   $respuesta->resultado = false;
-  $respuesta->msg = "Verifica el nick o la contraseña y vuelve a intentarlo";
+  $respuesta->msg = "Verifica el correo o la contraseña y vuelve a intentarlo";
   $respuesta->datos = [];
 
   echo json_encode($respuesta);

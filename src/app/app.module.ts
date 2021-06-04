@@ -25,6 +25,7 @@ import { EditarPerfilComponent } from './components/esp/esperfilus/editar-perfil
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { EditarPerfilComponent } from './components/esp/esperfilus/editar-perfil
     ESPComponent,
     ENGComponent,
     EditarPerfilComponent,
+    
     
     
     

@@ -32,7 +32,7 @@ this.http.post<Respuesta>(`${environment.serverUrl}login.php`, JSON.stringify(us
     if (!respuesta.resultado) {
       console.log("usuario no existe");
       // mostrar una alerta con sweet alert
-      Swal.fire('Datos del usuario incorrectos',
+      Swal.fire('Datos incorrectos',
       respuesta.msg,
       'error')
     }else {
