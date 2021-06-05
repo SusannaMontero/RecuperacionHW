@@ -20,6 +20,9 @@ import { EsperfilusComponent } from './components/esp/esperfilus/esperfilus.comp
 import { ESPComponent } from './components/esp/esp.component';
 import { ENGComponent } from './components/eng/eng.component';
 import { EditarPerfilComponent } from './components/esp/esperfilus/editar-perfil/editar-perfil.component';
+import { EsinformacionComponent } from './components/esp/esinformacion/esinformacion.component';
+import { EsbuscarmedicamentosComponent } from './components/esp/esbuscarmedicamentos/esbuscarmedicamentos.component';
+import { EsheaderusComponent } from './components/esp/esheaderus/esheaderus.component';
 
 
 
@@ -44,6 +47,9 @@ import { EditarPerfilComponent } from './components/esp/esperfilus/editar-perfil
     ESPComponent,
     ENGComponent,
     EditarPerfilComponent,
+    EsinformacionComponent,
+    EsbuscarmedicamentosComponent,
+    EsheaderusComponent,
     
     
     

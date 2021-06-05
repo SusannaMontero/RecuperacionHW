@@ -13,6 +13,9 @@ import { InheaderComponent } from './components/eng/inheader/inheader.component'
 import { AbouthealthworldComponent } from './components/eng/abouthealthworld/abouthealthworld.component';
 import { ContactComponent } from './components/eng/contact/contact.component';
 import { InloginComponent } from './components/eng/inlogin/inlogin.component';
+import { EsinformacionComponent } from './components/esp/esinformacion/esinformacion.component';
+import { EsbuscarmedicamentosComponent } from './components/esp/esbuscarmedicamentos/esbuscarmedicamentos.component';
+import { EsheaderusComponent } from './components/esp/esheaderus/esheaderus.component';
 
 
 const routes: Routes = [{path: '', pathMatch: 'full', redirectTo: 'index'},
@@ -29,7 +32,11 @@ const routes: Routes = [{path: '', pathMatch: 'full', redirectTo: 'index'},
 { path: 'inlogin', component: InloginComponent},
 { path: 'esperfilus', component: EsperfilusComponent},
 { path: 'editarPerfil', component: EditarPerfilComponent},
+{ path: 'esinformacion', component: EsinformacionComponent},
+{ path: 'esbuscarmedicamentos', component: EsbuscarmedicamentosComponent},
+{ path: 'esheaderus', component: EsheaderusComponent},
 { path: '**', redirectTo: 'index'}
+
 
 ];
 

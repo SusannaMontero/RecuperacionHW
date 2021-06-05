@@ -1,0 +1,53 @@
+<app-esheaderus></app-esheaderus>
+
+
+
+<div class="banner text-left mt-4">
+   
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg></span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Nombre Medicamento">
+              </div>
+              
+            <table class="table table-responsive table-hover">
+  
+                <thead>
+                    <tr class="text-center table-primary">
+                        <th scope="col">
+                           <h3>Nombre</h3>
+                        </th>
+                        <th scope="col">
+                           <h3>Composición</h3>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody  *ngFor="let listaMedicamento of respuestaM">
+                    <tr class="text-center">
+                        <td>{{listaMedicamento['nom']}}</td>
+                        <td>{{listaMedicamento['composicio']}}</td>
+  
+                        <td>
+                          <button class="btn btn-opacity-warning mr-3" >
+                            
+                          </button>
+                          <button class="btn btn-opacity-danger" >
+                          
+                          </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+  
+            <button class="appointment-btn scrollto ml-0 mr-2" >
+              
+            </button>
+  
+        </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

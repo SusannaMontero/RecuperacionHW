@@ -1,3 +1,4 @@
+import { Medicamento } from './../models/medicamento.model';
 import { Usuario } from './../models/usuario.model';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
@@ -67,6 +68,12 @@ this.http.post<Respuesta>(`${environment.serverUrl}login.php`, JSON.stringify(us
 // Función para que el usuario pueda editar los datos de su perfil
 public editarDatosPerfil(usmodificado: Usuario): Observable<any>  {
   return this.http.post(`${environment.serverUrl}editarPerfil.php`, JSON.stringify(usmodificado));
+}
+
+// Función para que el usuario visualice el listado de medicamentos
+public pedirListadoMedicamentos(idMedicamento: any): Observable<any>  {
+  console.log(idMedicamento);
+  return this.http.post(`${environment.serverUrl}listarMedicamentos.php`, JSON.stringify(idMedicamento));
 }
 
 }
