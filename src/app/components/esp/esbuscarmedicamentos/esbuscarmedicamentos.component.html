@@ -2,52 +2,87 @@
 
 
 
-<div class="banner text-left mt-4">
-   
-    <div class="row justify-content-center">
-        <div class="col-6">
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                  </svg></span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Nombre Medicamento">
-              </div>
-              
-            <table class="table table-responsive table-hover">
-  
-                <thead>
-                    <tr class="text-center table-primary">
-                        <th scope="col">
-                           <h3>Nombre</h3>
-                        </th>
-                        <th scope="col">
-                           <h3>Composición</h3>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody  *ngFor="let listaMedicamento of respuestaM">
-                    <tr class="text-center">
-                        <td>{{listaMedicamento['nombre']}}</td>
-                        <td>{{listaMedicamento['composicion']}}</td>
-  
-                        <td>
-                          <button class="btn btn-opacity-warning mr-3" >
-                            
-                          </button>
-                          <button class="btn btn-opacity-danger" >
-                          
-                          </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-  
-            <button class="appointment-btn scrollto ml-0 mr-2" >
-              
-            </button>
-  
+<div class="container">
+    <form [formGroup]='searchForm' (ngSubmit)="onSubmit()" class="col-12">
+      <div class="card col-12">
+        <div class="row">
+          <div class="col-12">
+            <label>Nombre:</label>
+            <div class="form-group mt-2 mb-2 col-6">
+              <input class="form-control" type="text" formControlName="nombre" id="nombre" [ngClass] = "{'is-invalid': (f.nombre.errors)}">
+            </div>
+          </div>
         </div>
-    </div>
+        <div class="row px-2">
+          <div class="card col-6 p-4">
+            <label>Codigo de barras:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="codigo_barras" id="codigo_barras" [ngClass] = "{'is-invalid': ( f.codigo_barras.errors)}">
+            </div>
+            <hr>
+            <label>Patologia:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="patologia" id="patologia" [ngClass] = "{'is-invalid': ( f.patologia.errors)}">
+            </div>
+            <hr>
+            <label>Laboratorio:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="laboratorio" id="laboratorio" [ngClass] = "{'is-invalid': ( f.laboratorio.errors)}">
+            </div>
+          </div>
+  
+          <div class="card col-6 p-4">
+            <label>Efecto secundario:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="efect_second" id="efect_second" [ngClass] = "{'is-invalid': (f.efect_second.errors)}">
+            </div>
+            <hr>
+            <label>Forma farmaceutica:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="form_farm" id="form_farm" [ngClass] = "{'is-invalid': (f.form_farm.errors)}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="appointment-btn scrollto">Buscar</button>
+        </div>
+      </div>
+    </form>
   </div>
+  <br>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+          <table class="table table-responsive table-hover">
+  
+              <thead>
+                  <tr class="text-center table-primary">
+                      <th scope="col">codigo</th>
+                      <th scope="col">nombre</th>
+                      <th scope="col">accion</th>
+                  </tr>
+              </thead>
+              <tbody  *ngFor="let item of medicamentos">
+                  <tr class="text-center">
+                      <td><b>{{item[2]}}</b></td>
+                      <td><b>{{item[1]}}</b></td>
+                      <td>
+                        <button class="btn btn-opacity-warning mr-3" (click)="modificar(item)">
+                          modificar
+                        </button>
+                        <button class="btn btn-opacity-danger" (click)="eliminar(item)">
+                          borrar
+                        </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  </div>
+  
+  <br>
   <app-footer></app-footer>

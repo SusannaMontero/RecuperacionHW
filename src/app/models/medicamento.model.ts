@@ -2,11 +2,12 @@ export class Medicamento {
 
     constructor(
         // tslint:disable-next-line: variable-name
-        public idMedicamento?: number,
-        public composicion?: string,
         public nombre?: string,
-        public codigoBarras?: number,
-        public comentarios?: string
+        public codigo_barras?: string,
+        public patologia?: string,
+        public laboratorio?: string,
+        public efect_second?: string,
+        public form_farm?: string
 
     ) {}
 }

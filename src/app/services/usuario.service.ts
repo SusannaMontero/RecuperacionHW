@@ -71,9 +71,9 @@ public editarDatosPerfil(usmodificado: Usuario): Observable<any>  {
 }
 
 // Función para que el usuario visualice el listado de medicamentos
-public pedirListadoMedicamentos(): Observable<any>  {
-  
-  return this.http.get(`${environment.serverUrl}listarMedicamentos.php`);
+public pedirListadoMedicamentos(query): Observable<any>  {
+  console.log(query);
+  return this.http.post(`${environment.serverUrl}listarMedicamentos.php`, JSON.stringify(query));
 }
 
 }
