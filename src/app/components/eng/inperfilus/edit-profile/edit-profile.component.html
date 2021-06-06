@@ -1,0 +1,225 @@
+<header id="header">
+  <div class="container d-flex align-items-center">
+    <a [routerLink]="['../usuario-perfil']" routerLinkActive="active" class="nav-link scrollto">
+      <img class="me-auto" src="/assets/logo_wh.jpg" width="300">
+    </a>
+
+    <nav id="navbar" class="navbar order-last order-lg-0" style="padding-left: 350px;">
+      <ul>
+        <li><a [routerLink]="'/inperfilus'" class="nav-link scrollto">Profile</a></li>
+        <li><a [routerLink]="['../informacion']" routerLinkActive="active" class="nav-link scrollto">Information</a>
+        </li>
+        <li><a [routerLink]="['../buscar-medicamentos']" routerLinkActive="active" class="nav-link scrollto">Search
+            Medication</a></li>
+        <li><a [routerLink]="['../ia']" routerLinkActive="active" class="nav-link scrollto">A.I.</a></li>
+      </ul>
+
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+    <a [routerLink]="['../index']" routerLinkActive="active" class="text-decoration-none appointment-btn scrollto"><span
+        class="d-none d-md-inline">Log Out</span></a>
+  </div>
+</header>
+
+<!-- Visualizamos perfil de usuario-->
+<div class="container d-flex">
+  <div class="col-3">
+    <div class="row">
+      <div *ngIf="usuario !== null" class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="../../../assets/doctors/doctors-1.jpg" alt="foto" class="rounded-circle" width="150">
+            <div class="mt-3">
+              {{usuario.nom}}&nbsp;{{usuario.cognom}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card mt-1">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h6><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                focusable="false" width="1em" height="1em"
+                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734c.145.38.514.633.926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322
+                1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6
+                14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633l2.07-5.734z" stroke="#626262"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>Ranking</h6>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h6><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                focusable="false" width="1em" height="1em"
+                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734c.145.38.514.633.926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322
+                1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6
+                14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633l2.07-5.734z" stroke="#626262"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>Cetirizina</h6>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h6><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                focusable="false" width="1em" height="1em"
+                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734c.145.38.514.633.926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322
+                1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6
+                14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633l2.07-5.734z" stroke="#626262"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>Desloratadina</h6>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h6><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                focusable="false" width="1em" height="1em"
+                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734c.145.38.514.633.926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322
+                1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6
+                14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633l2.07-5.734z" stroke="#626262"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>Loratadina</h6>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+            <h6><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                focusable="false" width="1em" height="1em"
+                style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <g fill="none">
+                  <path d="M11.074 2.633c.32-.844 1.531-.844 1.852 0l2.07 5.734c.145.38.514.633.926.633h5.087c.94 0 1.35 1.17.611 1.743L18 14a.968.968 0 0 0-.322
+                1.092L19 20.695c.322.9-.72 1.673-1.508 1.119l-4.917-3.12a1 1 0 0 0-1.15 0l-4.917 3.12c-.787.554-1.83-.22-1.508-1.119l1.322-5.603A.968.968 0 0 0 6
+                14l-3.62-3.257C1.64 10.17 2.052 9 2.99 9h5.087a.989.989 0 0 0 .926-.633l2.07-5.734z" stroke="#626262"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>Last Search: Levocetirizina</h6>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+  <!-- (La variable formControlName es una etiqueta que atiende los cambios al valor del control)-->
+  <form [formGroup]="editForm" (ngSubmit)="onFormSubmit()" style="width: 60rem;">
+    
+      <div class="row">
+        <div class="card mb-3">
+          <div class="card-body">
+
+            <!-- Campo del nombre -->
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Name:</h6>
+              </div>
+              <div class="form-group col-sm-9 text-secondary">
+                <input type="text" formControlName="nom" placeholder="" class="form-control" [ngClass]="{'is-valid': controlFormulario.nom.touched && controlFormulario.nom.valid,
+                          'is-invalid': controlFormulario.nom.touched && controlFormulario.nom.invalid}">
+
+                <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+                <div *ngIf="controlFormulario.nom.errors" class="invalid-feedback">
+                  <div *ngIf="controlFormulario.nom.errors.required">Name is required</div>
+                  <div *ngIf="controlFormulario.nom.errors.minlength">Mínimum 2 characters</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <!-- campo de apellido -->
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Surname:</h6>
+              </div>
+              <div class="form-group col-sm-9 text-secondary">
+                <input type="text" formControlName="cognom" placeholder="" class="form-control" [ngClass]="{'is-valid': controlFormulario.cognom.touched && controlFormulario.cognom.valid,
+                            'is-invalid': controlFormulario.cognom.touched && controlFormulario.cognom.invalid}">
+
+                <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+                <div *ngIf="controlFormulario.cognom.errors" class="invalid-feedback">
+                  <div *ngIf="controlFormulario.cognom.errors.required">Surname is required</div>
+                  <div *ngIf="controlFormulario.cognom.errors.minlength">Mínimum 2 characters</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <!-- campo del teléfono -->
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone:</h6>
+              </div>
+              <div class="form-group col-sm-9 text-secondary">
+                <input type="tel" formControlName="telefon" placeholder="" class="form-control" [ngClass]="{'is-valid': controlFormulario.telefon.touched && controlFormulario.telefon.valid,
+                            'is-invalid': controlFormulario.telefon.touched && controlFormulario.telefon.invalid}">
+
+                <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+                <div *ngIf="controlFormulario.telefon.errors" class="invalid-feedback">
+                  <div *ngIf="controlFormulario.telefon.errors.required">Phone number is required</div>
+                  <div *ngIf="controlFormulario.telefon.errors.minlength">Introduce a valid phone number</div>
+                  <div *ngIf="controlFormulario.telefon.errors.maxlength">Introduce a valid phone number</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <!-- campo de correo-e -->
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email:</h6>
+              </div>
+              <div class="form-group col-sm-9 text-secondary">
+                <input type="email" formControlName="email" placeholder="" class="form-control" [ngClass]="{'is-valid': controlFormulario.email.touched && controlFormulario.email.valid,
+                            'is-invalid': controlFormulario.email.touched && controlFormulario.email.invalid}">
+
+                <!-- El controlFormulario viene del TS y en caso que se cumplan las 2 condiciones se convierte en true -->
+                <div *ngIf="controlFormulario.email.errors" class="invalid-feedback">
+                  <div *ngIf="controlFormulario.email.errors.required">Email is required</div>
+                  <div *ngIf="controlFormulario.email.errors.email">Email is not valid</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <!-- campo del DNI, sólo de lectura, es un campo que debe habilitar el Admin del sitio -->
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">DNI:</h6>
+              </div>
+              <div class="form-group col-sm-9 text-secondary">
+                <input type="text" formControlName="dni" placeholder="" readonly class="form-control">
+              </div>
+            </div>
+            <hr>
+
+            <!--botón guardar datos-->
+            <div>
+              <div class="form-group">
+                <button type="submit" class="w-80 btn btn-m btn-primary">Save Data</button>
+              </div>
+            </div>
+            <br>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    <!-- </div> -->
+  </form>
+</div>
+</div>
+
+<footer style="position:fixed; left: 0px; bottom: 0px;">
+<app-footer></app-footer>
+</footer>
