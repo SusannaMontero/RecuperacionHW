@@ -1,9 +1,9 @@
 export class Medicamento {
 
     constructor(
-        // tslint:disable-next-line: variable-name
+        public id_medicamento?: number,
         public nombre?: string,
-        public codigo_barras?: string,
+        public codigo_barras?: number,
         public patologia?: string,
         public laboratorio?: string,
         public efect_second?: string,

@@ -1,15 +1,22 @@
 <?php
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Origin, x-Requested-With, Content-Type, Accept');
 header('Content-Type: application/json');
 
-require 'conDBLocal.php';
+$json = file_get_contents('php://input');
+// $postdata = file_get_contents("php://input");
+// $BDcon = new BD();
+// $con = $BDcon->conexio();
+// $postdata = json_decode($json);
 
-$postdata = file_get_contents("php://input");
-$BDcon = new BD();
-$con = $BDcon->conexio();
+// importamos el archivo con la conexión a la BD
+require_once 'conDBLocal.php';
 
-if(isset($postdata) && !empty($postdata)) {
+// creamos la conexión
+$conexion = conexion();
+
+if(isset($json) && !empty($json)) {
 
   $array[0][0] = 0;
   $array[0][1] = "";
@@ -17,11 +24,11 @@ if(isset($postdata) && !empty($postdata)) {
 
   $x=0;
 
-  $query = json_decode($postdata);
+  $query = json_decode($json);
 
   $select = "SELECT id_medicament, nom, codi_barres FROM medicaments WHERE id_medicament In $query";
 
-  $consulta = mysqli_query($con, $select);
+  $consulta = mysqli_query($conexion, $select);
 
   while ($valores = mysqli_fetch_array($consulta)) {
     $array[$x][0]=$valores[0];
@@ -32,7 +39,7 @@ if(isset($postdata) && !empty($postdata)) {
 
   }
 
-  echo json_encode($array);
+  print json_encode($array);
 
 
 }
