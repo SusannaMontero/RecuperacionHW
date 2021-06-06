@@ -10,7 +10,7 @@ export const environment = {
   vsesion: null,
 
   // Variable que recibe e id del medicamento
-  idM: 2
+  idM: null
  
 };
 

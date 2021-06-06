@@ -34,7 +34,7 @@ export class EsbuscarmedicamentosComponent implements OnInit {
 
   ngOnInit(): void {
  // Usamos el servicio para pedir todos los campos del Medicamento y poder listarlo
- this.listarMedicamentos.pedirListadoMedicamentos(this.idMedicamento).subscribe(
+ this.listarMedicamentos.pedirListadoMedicamentos().subscribe(
    
   (resp: any) => {
     this.respuestaM = resp;

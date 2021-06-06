@@ -3,17 +3,22 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, x-Requested-With, Content-Type, Accept");
 header('Content-Type: application/json');
 
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header('Content-Type: text/html; charset=UTF-8');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 
-$json = file_get_contents('php://input');
-$params = json_decode($json);
+
+// $json = file_get_contents('php://input');
+// $params = json_decode($json);
 
 require_once 'conDBLocal.php';
 
 $conexion = conexion();
 
 // Lista todos los medicamentos
-$query = "SELECT * FROM medicaments";
+$query = "SELECT * FROM usuari";
 $resultado = mysqli_query($conexion, $query);
 
 $datos = [];
@@ -37,6 +42,7 @@ if(count($datos)==0){
 
   print json_encode($datos);
 }
+
 
 ?>
 
