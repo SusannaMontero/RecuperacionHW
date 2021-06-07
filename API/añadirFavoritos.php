@@ -14,8 +14,8 @@ class Insertar {
     $conexion = conexion();
 
     // realizamos la query a la BD para realizar el insert con los valores que tendrá cada campo
-    $query =  "INSERT INTO favoritos(id_medicament, id_usuari)
-     VALUES ('".$param->idM."','".$param->sesion."')";
+    $query =  "INSERT INTO favoritos(id_medicament, id_usuari, nombreM)
+     VALUES ('".$param->idM."','".$param->sesion."', '".$param->nomM."')";
 
     //recojemos el resultado de si se ha ejecutado correctamente o no la query obteniendo true en caso que si o false en caso que no.
     $resultado =  mysqli_query($conexion, $query);

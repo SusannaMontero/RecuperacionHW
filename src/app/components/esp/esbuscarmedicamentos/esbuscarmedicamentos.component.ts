@@ -23,6 +23,7 @@ export class EsbuscarmedicamentosComponent implements OnInit {
   idM: number = null;
   sesion: number = null;
   respuesta: Respuesta;
+  nomM: string;
   
 
  
@@ -219,12 +220,14 @@ addFavoritos(item: Medicamento): void {
   console.log(item);
   // especifico el campo del objeto que quiero guardar como variable global
   environment.idM = item[0];
+  this.nomM = item[1];
   this.idM = environment.idM;
   this.sesion = environment.vsesion;
-  console.log(this.idM, this.sesion);
+  
+  console.log(this.idM, this.sesion, this.nomM);
 
   // Función que envia al service el medicamento seleccionado para guardarlo en la bbdd y que se add a favoritos
-  this.favoritos.añadirFavorito(this.idM, this.sesion).subscribe(
+  this.favoritos.añadirFavorito(this.idM, this.sesion, this.nomM).subscribe(
     (resp: any) => {
       this.respuesta = resp;
 

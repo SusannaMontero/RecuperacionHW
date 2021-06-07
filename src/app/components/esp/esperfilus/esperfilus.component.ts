@@ -47,18 +47,21 @@ sesion: number = environment.vsesion;
           }
         )
 
-    // Usamos el servicio para pedir todos los favoritos del usuario logueado
-    this.favoritosUsuario.pedirFavoritosUsuario(this.sesion).subscribe(
-      (resp: any)=>{
-        this.medicamento = resp;
-
-        console.log(this.medicamento);
-      },
-      (error: any)=>{
-        console.log(error);
-      }
-    )
+    
     
   }
 
+verFavoritos(): void {
+  // Usamos el servicio para pedir todos los favoritos del usuario logueado
+  this.favoritosUsuario.pedirFavoritosUsuario(this.sesion).subscribe(
+    (resp: any)=>{
+      this.medicamento = resp;
+
+      console.log(this.medicamento);
+    },
+    (error: any)=>{
+      console.log(error);
+    }
+  )
+}
 }

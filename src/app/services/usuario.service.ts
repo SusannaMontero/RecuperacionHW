@@ -80,10 +80,11 @@ public pedirListadoMedicamentos(query): Observable<any>  {
 // PRIMERO:
 // Función para comprobar si el medicamento que se quiere insertar en favoritos del usuario ya existe
 // SEGUNDO: inserta
-public añadirFavorito(idM: number, sesion: number): Observable<any>  {
+public añadirFavorito(idM: number, sesion: number, nomM: string): Observable<any>  {
   const body ={
     idM,
-    sesion
+    sesion,
+    nomM
   }
   return this.http.post(`${environment.serverUrl}comprovacionFavorito.php`, body);
 }
