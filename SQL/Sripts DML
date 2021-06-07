@@ -1,0 +1,17 @@
+/*Insert taules*/
+
+/*Insert medicaments*/
+INSERT INTO medicaments values('composicio','nom','codi_barres','comentaris','idioma');
+INSERT INTO efectes_secundaris values('descripcio','id_medicament');
+INSERT INTO forma_farmaceutica values('descripcio','id_medicament',);
+INSERT INTO laboratori values('descripcio','nom','id_medicament');
+INSERT INTO patologia values('descripcio','id_medicament',);
+INSERT INTO simptomatologia values('descripcio','id_medicament',);
+
+/*Insert metges*/
+INSERT INTO usuari values('nom','cognom','telefon','email','dni','contrasenya');
+INSERT INTO metges values('num_colegiat','especialitat','id_usuari');
+
+/*Insert farmaceutics*/
+INSERT INTO usuari values('nom','cognom','telefon','email','dni','contrasenya');
+INSERT INTO farmaceutic values('num_colegiat','farmacia','id_usuari');

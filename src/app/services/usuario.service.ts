@@ -1,3 +1,4 @@
+import { Medicamento } from './../models/medicamento.model';
 import { Usuario } from './../models/usuario.model';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
@@ -59,7 +60,7 @@ this.http.post<Respuesta>(`${environment.serverUrl}login.php`, JSON.stringify(us
  )
 }
 
- // Función para pedir a la BBDD que nos devuelva todos los campos del usuario que le pasamos a través de vsesion 
+ // Función para pedir a la BBDD que nos devuelva todos los campos del usuario que le pasamos a través de sesion 
  public pedirDatosUsuario(sesion: any): Observable<any> {
   return this.http.post(`${environment.serverUrl}datosPerfil.php`, JSON.stringify(sesion));
 }
@@ -69,4 +70,27 @@ public editarDatosPerfil(usmodificado: Usuario): Observable<any>  {
   return this.http.post(`${environment.serverUrl}editarPerfil.php`, JSON.stringify(usmodificado));
 }
 
+// Función para que el usuario visualice el listado de medicamentos
+public pedirListadoMedicamentos(query): Observable<any>  {
+  return this.http.post(`${environment.serverUrl}listarMedicamentos.php`, JSON.stringify(query));
+}
+
+
+// Función para que el medicamento seleccionado se añada a la lista de favoritos
+// PRIMERO:
+// Función para comprobar si el medicamento que se quiere insertar en favoritos del usuario ya existe
+// SEGUNDO: inserta
+public añadirFavorito(idM: number, sesion: number, nomM: string): Observable<any>  {
+  const body ={
+    idM,
+    sesion,
+    nomM
+  }
+  return this.http.post(`${environment.serverUrl}comprovacionFavorito.php`, body);
+}
+
+// Función para poder listar los medicamentos favoritos de un médico
+public pedirFavoritosUsuario(sesion): Observable<any>  {
+  return this.http.post(`${environment.serverUrl}listarFavoritos.php`, JSON.stringify(sesion));
+}
 }

@@ -86,11 +86,11 @@ export class EditarPerfilComponent implements OnInit {
        (datos: any) => {
          console.log(datos);
        if (datos == 1){
-         // console.log("usuario existe");
+         
 
          Swal.fire(
-           'Ok',
-           'Perfil Actualizado',
+           '',
+           'Perfil Actualizado correctamente',
            'success'
 
          )
@@ -105,12 +105,6 @@ export class EditarPerfilComponent implements OnInit {
            'No se ha actualizado el perfil',
            'error'
          )
-       } else {
-         // console.log(datos);
-         Swal.fire(
-           'Perfil no actua',
-           'Datos incorrectos',
-           'warning')
        }
      },
      // Disparador error, lo que hace es guardar en la variable error any(qualquier) tipo de error y nos lo imprimirá por

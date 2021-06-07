@@ -1,0 +1,85 @@
+<app-esheaderus></app-esheaderus>
+
+
+
+<div class="container">
+    <form [formGroup]='searchForm' (ngSubmit)="onSubmit()" class="col-12">
+      <div class="card col-12">
+        <div class="row">
+          <div class="col-12">
+            <label>Nombre:</label>
+            <div class="form-group mt-2 mb-2 col-6">
+              <input class="form-control" type="text" formControlName="nombre" id="nombre" [ngClass] = "{'is-invalid': (submitted && f.nombre.errors)}">
+            </div>
+          </div>
+        </div>
+        <div class="row px-2">
+          <div class="card col-6 p-4">
+            <label>Código de barras:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="codigo_barras" id="codigo_barras" [ngClass] = "{'is-invalid': (submitted && f.codigo_barras.errors)}">
+            </div>
+            <hr>
+            <label>Patología:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="patologia" id="patologia" [ngClass] = "{'is-invalid': (submitted && f.patologia.errors)}">
+            </div>
+            <hr>
+            <label>Laboratorio:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="laboratorio" id="laboratorio" [ngClass] = "{'is-invalid': (submitted && f.laboratorio.errors)}">
+            </div>
+          </div>
+  
+          <div class="card col-6 p-4">
+            <label>Efecto secundario:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="efect_second" id="efect_second" [ngClass] = "{'is-invalid': (submitted && f.efect_second.errors)}">
+            </div>
+            <hr>
+            <label>Forma farmaceutica:</label>
+            <div class="form-group mt-2 mb-2">
+              <input class="form-control" type="text" formControlName="form_farm" id="form_farm" [ngClass] = "{'is-invalid': (submitted && f.form_farm.errors)}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="appointment-btn scrollto">Buscar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <br>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+          <table class="table table-responsive table-hover">
+  
+              <thead>
+                  <tr class="text-center table-primary">
+                      <th scope="col">Código</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Acción</th>
+                  </tr>
+              </thead>
+              <tbody  *ngFor="let item of medicamentos">
+                  <tr class="text-center">
+                      <td><b>{{item[2]}}</b></td>
+                      <td><b>{{item[1]}}</b></td>
+                      <td>
+                        <button class="btn btn-opacity-warning mr-3" (click)="addFavoritos(item)">
+                          Añadir a Favoritos
+                        </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  </div>
+  
+  <br>
+  <app-footer></app-footer>

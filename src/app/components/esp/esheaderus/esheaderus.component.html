@@ -1,0 +1,23 @@
+<header id="header">
+    <div class="container d-flex align-items-center">
+      <a [routerLink]="['../usuario-perfil']" routerLinkActive="active" class="nav-link scrollto">
+        <img class="me-auto" src="/assets/logo_wh.jpg" width="300">
+      </a>
+  
+      <nav id="navbar" class="navbar order-last order-lg-0" style="padding-left: 350px;">
+        <ul>
+          <li><a [routerLink]="'/editarPerfil'" class="nav-link scrollto">Editar Perfil</a></li>
+          <li><a [routerLink]="'/esinformacion'" routerLinkActive="active" class="nav-link scrollto">Informacion</a>
+          </li>
+          <li><a [routerLink]="'/esbuscarmedicamentos'" routerLinkActive="active" class="nav-link scrollto">Buscar
+              Medicamentos</a></li>
+          <li><a [routerLink]="['../ia']" routerLinkActive="active" class="nav-link scrollto">I.A.</a></li>
+        </ul>
+  
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+  
+      <a [routerLink]="['../index']" routerLinkActive="active" class="text-decoration-none appointment-btn scrollto"><span
+          class="d-none d-md-inline">Cerrar Sesion</span></a>
+    </div>
+  </header>
