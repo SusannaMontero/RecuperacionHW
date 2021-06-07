@@ -1,3 +1,4 @@
+import { Favorito } from './../../../models/favoritos.model';
 
 import { Usuario } from './../../../models/usuario.model';
 import { Medicamento } from './../../../models/medicamento.model';
@@ -24,6 +25,7 @@ export class EsbuscarmedicamentosComponent implements OnInit {
   sesion: number = null;
   respuesta: Respuesta;
   nomM: string;
+  favorito: Favorito;
   
 
  
@@ -223,6 +225,8 @@ addFavoritos(item: Medicamento): void {
   this.nomM = item[1];
   this.idM = environment.idM;
   this.sesion = environment.vsesion;
+
+  
   
   console.log(this.idM, this.sesion, this.nomM);
 
@@ -232,7 +236,26 @@ addFavoritos(item: Medicamento): void {
       this.respuesta = resp;
 
       console.log(this.respuesta);
+
+      if (resp == 1){
+
+        Swal.fire(
+          '',
+          'Favorito ya existe',
+          'error'
+
+        )
+
+      } else if (resp == 0){
+
+        Swal.fire(
+          '',
+          'Favorito añadido correctamente',
+          'success'
+        )
+        }
     },
+    
     (error: any) => {
       console.log(error);
     }

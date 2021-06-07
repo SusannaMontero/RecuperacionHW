@@ -6,9 +6,11 @@ header('Content-Type: application/json');
 
 // recoje los datos que le pasa el service en formato json
 $json = file_get_contents('php://input');
+// echo($json)
 
 // guardamos en la variable params los datos descodificados que recojemos del JSON que os manda el ts
 $params = json_decode($json);
+
 
 // importamos el archivo con la conexión a la BD
 require_once 'conDBLocal.php';
@@ -17,7 +19,8 @@ require_once 'conDBLocal.php';
 $conexion = conexion();
 
 // realizamos la query a la BD
-$query =  "SELECT nombreM FROM favoritos WHERE id_usuari=".$params."";
+$query =  "SELECT nombreM FROM favoritos WHERE id_usuari=".$params->sesion.""; 
+// echo($params);
 $resultado = mysqli_query($conexion, $query);
 
 // inciamos la variable $datos como array donde vamos a guardar los datos que obt4engamos de la consulta
@@ -31,15 +34,7 @@ while ($row = mysqli_fetch_assoc($resultado)) {
 $conexion->close();
 
 print json_encode($datos);
+// echo($datos);
 }
 ?>
 
-
-
-
-<!-- select m.nom, concat (f.id_medicament), concat (f.id_usuari), concat (m.id_medicament) 
-from favoritos f, medicaments m where f.id_usuari = 1 AND f.id_medicament = m.id_medicament GROUP BY m.nom -->
-
-<!-- // SELECT m.nom from favoritos f, medicaments m 
-// where f.id_medicament = m.id_medicament 
-// AND f.id_usuari = 1"; -->

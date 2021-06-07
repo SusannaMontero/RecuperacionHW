@@ -5,10 +5,6 @@ header('Access-Control-Allow-Headers: Origin, x-Requested-With, Content-Type, Ac
 header('Content-Type: application/json');
 
 $json = file_get_contents('php://input');
-// $postdata = file_get_contents("php://input");
-// $BDcon = new BD();
-// $con = $BDcon->conexio();
-// $postdata = json_decode($json);
 
 // importamos el archivo con la conexión a la BD
 require_once 'conDBLocal.php';
@@ -38,7 +34,7 @@ if(isset($json) && !empty($json)) {
     $x++;
 
   }
-
+  $conexion->close();
   print json_encode($array);
 
 
