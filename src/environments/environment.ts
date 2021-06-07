@@ -6,12 +6,14 @@ export const environment = {
   production: false,
   serverUrl: 'http://localhost:8080/',
 
+
   // Variable que recibe el id del usuario
   vsesion: null,
 
   // Variable que recibe e id del medicamento
   idM: null
  
+
 };
 
 /*

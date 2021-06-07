@@ -15,8 +15,8 @@ import { InindexComponent } from './components/eng/inindex/inindex.component';
 import { AbouthealthworldComponent } from './components/eng/abouthealthworld/abouthealthworld.component';
 import { ContactComponent } from './components/eng/contact/contact.component';
 import { InheaderComponent } from './components/eng/inheader/inheader.component';
-import { InloginComponent } from './components/eng/inlogin/inlogin.component';
 import { EsperfilusComponent } from './components/esp/esperfilus/esperfilus.component';
+import { InperfilusComponent } from './components/eng/inperfilus/inperfilus.component';
 import { ESPComponent } from './components/esp/esp.component';
 import { ENGComponent } from './components/eng/eng.component';
 import { EditarPerfilComponent } from './components/esp/esperfilus/editar-perfil/editar-perfil.component';
@@ -42,8 +42,8 @@ import { EsheaderusComponent } from './components/esp/esheaderus/esheaderus.comp
     AbouthealthworldComponent,
     ContactComponent,
     InheaderComponent,
-    InloginComponent,
     EsperfilusComponent,
+    InperfilusComponent,
     ESPComponent,
     ENGComponent,
     EditarPerfilComponent,
